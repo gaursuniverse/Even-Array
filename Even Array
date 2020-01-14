@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class EvenArrays {
+    public int[] evenArray(int[] arr) {
+        int n = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != 0 && arr[i] % 2 == 0) {
+                n = n + 1;
+            }
+        }
+        int[] brr = new int[n];
+        int j =0;
+        for (int i = 0 ; i < arr.length ; i++) {
+            if (arr[i] != 0 && arr[i] % 2 == 0) {
+                while( j < brr.length){
+                    brr[j] = arr[i];
+                    j = j + 1;
+                    break;
+                }
+            }
+        }
+        return brr;
+    }
+        public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        EvenArrays obj = new EvenArrays();
+
+        //First Array
+        int count1 = 0;
+        System.out.print(" Size of Input Array =  ");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        for (int i = 0; i <arr.length ; i++) {
+            System.out.print(i +"th Index : ");
+            arr[i] = sc.nextInt();
+        }
+        System.out.print(" Input  Array : [");
+        for ( int e : arr ) {
+            System.out.print(e);
+            count1 = count1 + 1;
+            if(count1 < arr.length){
+                System.out.print(",");
+            }
+        }
+        System.out.println("]");
+
+        //Second Array
+        int count2 = 0;
+        int brr[] = obj.evenArray(arr);
+        System.out.print(" Output Array : [");
+        for ( int e : brr ) {
+            System.out.print(e);
+            count2 = count2 + 1;
+            if(count2 < brr.length){
+                System.out.print(",");
+            }
+        }
+        System.out.println("]");
+    }
+}
